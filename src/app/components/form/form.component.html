@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="input-main">
+        <div class="header-content">
+            <div class="header-text">
+                Person Address Form
+            </div>
+            <mat-icon class="header-icon" (click)="onCancel()">cancel</mat-icon>
+
+        </div>
+        <form class="form-content" (ngSubmit)="addPerson()">
+            <div class="input-name">
+                <mat-form-field appearance="outline">
+                    <mat-label>Fullname</mat-label>
+                    <input type="name" matInput placeholder="Enter your name" [(ngModel)]="fullname"
+                        [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="pat@example.com" [(ngModel)]="addressBook.email"
+                        [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="Phonenumber" [(ngModel)]="addressBook.phonenumber"
+                        [ngModelOptions]="{standalone: true}" required>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="address" appearance="outline">
+                <mat-label>Address</mat-label>
+                <textarea matInput [(ngModel)]="addressBook.address" [ngModelOptions]="{standalone: true}"></textarea>
+            </mat-form-field>
+            <div class="input-address">
+                <mat-form-field appearance="outline">
+                    <mat-label>City</mat-label>
+                    <mat-select [(ngModel)]="addressBook.city" [ngModelOptions]="{standalone: true}">
+                        <mat-option>none</mat-option>
+                        <mat-option value="Belgaum">Belgaum</mat-option>
+                        <mat-option value="Bidar">Bidar</mat-option>
+                        <mat-option value="Bangalore">Bangalore</mat-option>
+                        <mat-option value="Tumkur">Tumkur</mat-option>
+                        <mat-option value="Mysore">Mysore</mat-option>
+                        <mat-option value="Hubli">Hubli</mat-option>
+                        <mat-option value="koppal">Koppal</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>State</mat-label>
+                    <mat-select [(ngModel)]="addressBook.state" [ngModelOptions]="{standalone: true}">
+                        <mat-option>none</mat-option>
+                        <mat-option value="Karnataka">Karnataka</mat-option>
+                        <mat-option value="Goa">Goa</mat-option>
+                        <mat-option value="Maharashtra">Maharashtra</mat-option>
+                        <mat-option value="Delhi">Delhi</mat-option>
+                        <mat-option value="UttarPradesh">UP</mat-option>
+                        <mat-option value="Bihar">Bihar</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>PinCode</mat-label>
+                    <input type="number" matInput placeholder="Pincode" [(ngModel)]="addressBook.pincode"
+                        [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+            <div class="button-content">
+                <button class="add" mat-raised-button type="submit" *ngIf="this.id==null">Add</button>
+                <button class="update" mat-raised-button type="button" (click)="updateById(id)"
+                    *ngIf="this.id!=null">Update</button>
+                <button class="reset" mat-raised-button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
